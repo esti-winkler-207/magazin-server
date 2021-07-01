@@ -8,6 +8,7 @@ router.post('/AddUser', user.AddUser);
 router.post('/AddMagazin',magazin.AddMagazin);
 router.post('/AddPostToMagazin',post.AddPostToMagazin);
 router.get('/GetAllMagazinByUserId/:id',magazin.GetAllMagazinByUserId);
+router.get('/GetAllPostsByMagazinId/:magazinId',post.GetAllPostsByMagazinId);
 // router.get('/LoginUser/:name/:password', user.LoginUser)
 // router.get('/LoginUser/:name/:password', user.LoginUser)
 // router.patch('/addWetherByCity/:cityName/:UserId', user.addWetherByCity)
