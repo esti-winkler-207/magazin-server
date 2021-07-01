@@ -31,4 +31,15 @@ const GetAllMagazinByUserId = (req, res) => {
             console.log(err)
         })
 }
-module.exports = { AddMagazin, GetAllMagazinByUserId }
+
+const deleteMagaazin= async (req, res) => {
+    try {
+        const myMagazin = await magazin.findById(req.params.id);
+        const user=await User.findByIdAndUpdate(myMagazin.idUser, { $pull: { magazins: myMagazin._id } })
+        await magazin.findByIdAndDelete(req.params.id)
+        res.json({user:user});
+    } catch (err) {
+        console.log(err)
+    }
+   }
+module.exports = { AddMagazin, GetAllMagazinByUserId, deleteMagaazin }

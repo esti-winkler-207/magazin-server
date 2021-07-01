@@ -5,6 +5,7 @@ const magazin = require('../controlers/magazin')
 const post = require('../controlers/post')
 
 router.get('/GetAllUsers', user.GetAllUsers);
+router.delete('/deleteMagaazin/:id',magazin.deleteMagaazin);
 router.post('/AddUser', user.AddUser);
 router.post('/AddMagazin', magazin.AddMagazin);
 router.post('/AddPostToMagazin', post.AddPostToMagazin);
