@@ -18,7 +18,10 @@ const GetAllUsers = (req, res) => {
     User.find().then((data) => {
         res.json(data);
         res.send('success!!!!');
-    }).catch((error) => { res.send(error) })
+    }).catch((error) => {
+        res.send(error)
+        console.log(error)
+    })
 
 }
 
