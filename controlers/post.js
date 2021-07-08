@@ -5,10 +5,12 @@ const AddPostToMagazin = (req, res) => {
     const currentPost = new posts(req.body);
     currentPost.save()
         .then((post) => {
+            // magazin.findById({_id: req.body.idMagazin}).then(u=>res.json(u)).catch(e=>res.send(e));
+
             magazin.findByIdAndUpdate(
                 { _id: req.body.idMagazin },
                 { $push: { 'posts': post._id } }
-            ).then(m=>res.json(m)).catch(err => { })
+            ).then(u=>res.json(u)).catch(err => { res.send(err);console.log(err)})
         })
         .catch(err => {
             res.send("failed to save!");

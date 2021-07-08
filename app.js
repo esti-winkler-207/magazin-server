@@ -17,9 +17,6 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 
-
-
-
 const connectionParams = {
     useNewUrlParser: true,
     useCreateIndex: true,
