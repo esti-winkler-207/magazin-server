@@ -35,9 +35,12 @@ const GetAllMagazinByUserId = (req, res) => {
 const deleteMagaazin= async (req, res) => {
     try {
         const myMagazin = await magazin.findById(req.params.id);
-        const user=await User.findByIdAndUpdate(myMagazin.idUser, { $pull: { magazins: myMagazin._id } })
-        await magazin.findByIdAndDelete(req.params.id)
-        res.json({user:user});
+        const user=await User.findByIdAndUpdate(myMagazin.idUser, { $pull: { magazins: myMagazin._id } }) 
+        const user2=await User.findById(myMagazin.idUser);
+         await magazin.findByIdAndDelete(req.params.id);
+       
+        res.json({user:user2});
+
     } catch (err) {
         console.log(err)
     }
