@@ -19,7 +19,9 @@ const AddPostToMagazin = (req, res) => {
 
 }
 const GetAllPostsByMagazinId = (req, res) => {
-    magazin.findById(req.params.magazinId).populate('post').then(m => {
+    magazin.findById(req.params.magazinId)
+    .populate({path:'posts',select:'idMagazin name'})
+    .then(m => {
         res.json(m.posts);
     }).catch((err) => { res.send(err) });
 }
