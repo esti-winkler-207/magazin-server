@@ -3,7 +3,7 @@ const router = require('express').Router();
 const user = require('../controlers/user')
 const magazin = require('../controlers/magazin')
 const post = require('../controlers/post')
-
+router.get('/login/:name/:password/:email',user.login);
 router.get('/GetAllUsers', user.GetAllUsers);
 router.delete('/deleteMagaazin/:id',magazin.deleteMagaazin);
 router.post('/AddUser', user.AddUser);

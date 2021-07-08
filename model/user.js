@@ -3,6 +3,13 @@ const userSchema= mongoose.Schema({
     name: {
         type: String
     },
+    password:{
+        type:String
+    },
+    email:{
+        type:String
+
+    },
     magazins: [
         {
             type: mongoose.Types.ObjectId, ref: 'magazin'

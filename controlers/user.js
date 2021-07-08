@@ -39,11 +39,11 @@ const GetAllMagazinByUserId = (req, res) => {
         })
 }
 
-const getMagazinById=(req,res)=>{
-    
+const login=(req,res)=>{
+   User.findOne({$or:[{'name':req.params.name,'password':req.params.password,'email':req.params.email}]}).then(u=>res.json(u)).catch(e=>res.send(e)) 
 }
 
-module.exports = { AddUser, GetAllMagazinByUserId, GetAllUsers }
+module.exports = { AddUser, GetAllMagazinByUserId, GetAllUsers, login }
 
 
 
