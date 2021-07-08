@@ -1,3 +1,4 @@
+const magazin = require('../model/magazin');
 const User = require('../model/user')
 
 const AddUser = (req, res) => {
@@ -30,6 +31,7 @@ const GetAllMagazinByUserId = (req, res) => {
         .populate('magazin')
         .then((user) => {
             res.json(user.magazins)
+            
         })
         .catch((err) => {
             res.send('error!!!')
@@ -37,6 +39,9 @@ const GetAllMagazinByUserId = (req, res) => {
         })
 }
 
+const getMagazinById=(req,res)=>{
+    
+}
 
 module.exports = { AddUser, GetAllMagazinByUserId, GetAllUsers }
 

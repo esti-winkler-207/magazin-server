@@ -19,7 +19,7 @@ const AddMagazin = (req, res) => {
 
 const GetAllMagazinByUserId = (req, res) => {
     User.findById(req.params.id)
-        .populate('magazin')
+        .populate({path:'magazins',select:'name posts'})
         .then((user) => {
             //    res.send('success!')
             
