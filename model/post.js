@@ -9,6 +9,10 @@ const postSchema= mongoose.Schema({
     idMagazin: {
         type: mongoose.Types.ObjectId, ref: 'magazin'
     },
+    description:{
+        type:String
+
+    },
     image:{type:String}
 })
 module.exports = mongoose.model('post', postSchema);

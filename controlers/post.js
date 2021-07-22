@@ -4,10 +4,12 @@ const  Mongoose  = require('mongoose');
 
 const AddPostToMagazin = (req, res) => {
     const {path:image}=req.file;
+    const {name,idMagazin,description}=req.body;
     const currentPost = new posts({
         _id: Mongoose.Types.ObjectId(),
-        name:req.body.name,
-        idMagazin:req.body.idMagazin,
+        name,
+        idMagazin,
+        description,
         image:image.replace('\\','/')
 
     });
@@ -31,7 +33,7 @@ const AddPostToMagazin = (req, res) => {
 }
 const GetAllPostsByMagazinId = (req, res) => {
     magazin.findById(req.params.magazinId)
-    .populate({path:'posts',select:'idMagazin name'})
+    .populate({path:'posts',select:'idMagazin name description'})
     .then(m => {
         res.json(m.posts);
     }).catch((err) => { res.send(err) });
