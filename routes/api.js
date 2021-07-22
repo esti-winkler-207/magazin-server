@@ -1,14 +1,15 @@
-
 const router = require('express').Router();
 const user = require('../controlers/user')
 const magazin = require('../controlers/magazin')
 const post = require('../controlers/post')
+const apload=require('../middlewares/posts')
+
 router.get('/login/:name/:password/:email',user.login);
 router.get('/GetAllUsers', user.GetAllUsers);
 router.delete('/deleteMagaazin/:id',magazin.deleteMagaazin);
 router.post('/AddUser', user.AddUser);
 router.post('/AddMagazin', magazin.AddMagazin);
-router.post('/AddPostToMagazin', post.AddPostToMagazin);
+router.post('/AddPostToMagazin',apload.single('image'), post.AddPostToMagazin);
 router.get('/GetAllMagazinByUserId/:id', magazin.GetAllMagazinByUserId);
 router.get('/GetAllPostsByMagazinId/:magazinId', post.GetAllPostsByMagazinId);
 // router.get('/LoginUser/:name/:password', user.LoginUser)

@@ -15,7 +15,7 @@ app.use((req, res, next) => {
     }
     next();})
 app.use(bodyParser.json());
-
+app.use('/aploads',express.static('aploads'))
 
 const connectionParams = {
     useNewUrlParser: true,
