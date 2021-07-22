@@ -24,6 +24,8 @@ const AddPostToMagazin = (req, res) => {
         .catch(err => {
             res.send("failed to save!");
             console.log(err);
+            
+            return;
         })
 
 }
